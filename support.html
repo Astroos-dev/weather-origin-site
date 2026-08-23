@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Help — Weather Origin</title>
+  <meta name="description" content="Support, documentation, and troubleshooting for Weather Origin.">
+  <link rel="icon" type="image/png" href="assets/weather-origin-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #030C1E;
+      --bg-surface: #071630;
+      --bg-card: rgba(11, 25, 44, 0.85);
+      --border: rgba(56, 189, 248, 0.15);
+      --border-hover: rgba(56, 189, 248, 0.35);
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --accent-cyan: #38BDF8;
+      --accent-indigo: #818CF8;
+      --accent-aurora: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(3, 12, 30, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+    .brand img { width: 34px; height: 34px; border-radius: 8px; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    nav a:hover, nav a.active { color: var(--accent-cyan); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.85rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      background: var(--accent-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+    }
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { list-style-type: none; padding: 0; margin: 0.75rem 0 1.25rem; }
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+    .highlight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 1.25rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.5rem 0;
+    }
+    .highlight-box p { color: var(--text-main); font-size: 0.95rem; margin: 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-aurora);
+      color: #030C1E;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: rgba(56, 189, 248, 0.2); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent-cyan); }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 1.75rem 1rem 3rem; }
+      .card { padding: 1.25rem; }
+      .header-inner { padding: 0.85rem 1rem; }
+      nav { gap: 1rem; }
+    }
+  </style>
+
+</head>
+<body>
+  
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/weather-origin-logo.png" alt="Weather Origin Logo">
+        <span>Weather Origin</span>
+      </a>
+      <nav>
+        <a href="index.html" class="">Overview</a>
+        <a href="privacy-policy.html" class="">Privacy Policy</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <div class="badge">Help & Support</div>
+    <h1>Support & Documentation</h1>
+    <div class="subtitle">Frequently asked questions, permissions guidance, and support contact for Weather Origin.</div>
+
+    <div class="card">
+      <h2>What is Weather Origin?</h2>
+      <p>Weather Origin is a specialized meteorological and astronomical intelligence application. Unlike standard weather apps that focus only on surface conditions, Weather Origin provides deep atmospheric data designed for night sky observation, astrophotography, stargazing, and daytime planning.</p>
+    </div>
+
+    <div class="card">
+      <h2>Permissions Explained</h2>
+      <ul>
+        <li><strong>Location Permission:</strong> Used only when you tap the GPS button to fetch weather and astronomical data for your exact location. You can alternatively search for any city worldwide without granting location permission.</li>
+        <li><strong>Notification Permission (Android 13+):</strong> Used solely if you opt in to the Daily Weather Briefings (Morning summary, Midday shifts, and Night outlook). Notifications are processed on-device without background battery drain.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Unit System Settings</h2>
+      <p>Weather Origin supports three unit modes accessible via the Settings icon (top right):</p>
+      <ul>
+        <li><strong>Auto (Country-Aware):</strong> Automatically sets Metric for worldwide users and Imperial for United States locations based on selected location.</li>
+        <li><strong>Metric:</strong> Celsius (°C), km/h, hPa, mm, km.</li>
+        <li><strong>Imperial:</strong> Fahrenheit (°F), mph, inHg, in, mi.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Home Screen Widgets</h2>
+      <p>Weather Origin includes two native Android widgets:</p>
+      <ul>
+        <li><strong>2×1 Compact Weather Widget:</strong> Quick glance at current temperature, condition, wind, and humidity.</li>
+        <li><strong>4×2 Weather & Sun Widget:</strong> Detailed forecast including solar ephemeris (sunrise, sunset, twilight) and atmospheric metrics.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact & Feedback</h2>
+      <p>Need help with Weather Origin or have a feature suggestion? Our development team is here to assist you:</p>
+      <div style="margin-top: 1rem;">
+        <p><strong>Email Support:</strong></p>
+        <p style="color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; font-weight: 500;">support@weatherorigin.app</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>© 2026 Weather Origin. Astronomy-focused weather intelligence.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="index.html">Home</a> · 
+        <a href="privacy-policy.html">Privacy Policy</a> · 
+        <a href="support.html">Support & Help</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

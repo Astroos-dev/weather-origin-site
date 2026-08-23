@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronomy Weather Intelligence — Weather Origin</title>
+  <meta name="description" content="Weather Origin - Advanced astronomical and meteorological forecast intelligence.">
+  <link rel="icon" type="image/png" href="assets/weather-origin-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #030C1E;
+      --bg-surface: #071630;
+      --bg-card: rgba(11, 25, 44, 0.85);
+      --border: rgba(56, 189, 248, 0.15);
+      --border-hover: rgba(56, 189, 248, 0.35);
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --accent-cyan: #38BDF8;
+      --accent-indigo: #818CF8;
+      --accent-aurora: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(3, 12, 30, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+    .brand img { width: 34px; height: 34px; border-radius: 8px; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    nav a:hover, nav a.active { color: var(--accent-cyan); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.85rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      background: var(--accent-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+    }
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { list-style-type: none; padding: 0; margin: 0.75rem 0 1.25rem; }
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+    .highlight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 1.25rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.5rem 0;
+    }
+    .highlight-box p { color: var(--text-main); font-size: 0.95rem; margin: 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-aurora);
+      color: #030C1E;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: rgba(56, 189, 248, 0.2); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent-cyan); }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 1.75rem 1rem 3rem; }
+      .card { padding: 1.25rem; }
+      .header-inner { padding: 0.85rem 1rem; }
+      nav { gap: 1rem; }
+    }
+  </style>
+
+</head>
+<body>
+  
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/weather-origin-logo.png" alt="Weather Origin Logo">
+        <span>Weather Origin</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Overview</a>
+        <a href="privacy-policy.html" class="">Privacy Policy</a>
+        <a href="support.html" class="">Support</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <div class="badge">V1.0 Production Release</div>
+    <h1>Weather Origin</h1>
+    <div class="subtitle">
+      Astronomy-focused meteorological intelligence engineered for stargazers, astrophotographers, and deep-sky observers.
+    </div>
+
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;">
+      <a href="privacy-policy.html" class="btn">Privacy Policy</a>
+      <a href="support.html" class="btn btn-secondary">Support & FAQ</a>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h2>Atmospheric Stability & Seeing</h2>
+        <p>Predict seeing quality, transparency, wind shear, and multi-layer cloud cover (high, mid, low) to plan observing sessions with confidence.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌑</div>
+        <h2>Lunar Ephemeris & Illumination</h2>
+        <p>Real-time lunar phase calculation, percentage illumination, moonrise, moonset, and optimal moon-free astronomical darkness windows.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌅</div>
+        <h2>Solar Twilight Phases</h2>
+        <p>Precise Meeus-calculated solar transitions: Golden Hour, Blue Hour, Civil, Nautical, and true Astronomical Twilight.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔔</div>
+        <h2>Daily Weather Brief</h2>
+        <p>3-stage on-device briefings: 08:00 Morning summary, 13:00 conditional shift update, and 19:00 Night observation outlook.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔴</div>
+        <h2>Red Night Vision Mode</h2>
+        <p>Hardware-optimized full-spectrum monochromatic red interface to preserve scotopic dark-adaptation during deep-sky sessions.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h2>Android Home Screen Widgets</h2>
+        <p>Compact 2×1 quick glance and comprehensive 4×2 Sun & Ephemeris home screen widgets updating seamlessly on Android 16+.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 3rem;">
+      <h3>Privacy by Design</h3>
+      <p style="margin-top: 0.5rem;">Weather Origin is 100% ad-free, requires no accounts or logins, and never sells or tracks your location data.</p>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>© 2026 Weather Origin. Astronomy-focused weather intelligence.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="index.html">Home</a> · 
+        <a href="privacy-policy.html">Privacy Policy</a> · 
+        <a href="support.html">Support & Help</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
