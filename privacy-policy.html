@@ -234,9 +234,9 @@
       <h2>2. Location Information Usage</h2>
       <p>Weather Origin requires geographic coordinates solely to compute solar ephemerides (sunsets, twilight phases, astronomical darkness) and to fetch local atmospheric forecast data.</p>
       <ul>
-        <li><strong>Precise Location (GPS):</strong> When location permission is granted, GPS coordinates are processed locally on your device to query meteorological data for your immediate area.</li>
+        <li><strong>Precise Location (GPS):</strong> When location permission is granted, GPS coordinates are used by your device to request meteorological forecasts for your immediate area.</li>
         <li><strong>Manual City Search:</strong> You may search for locations manually without granting GPS access.</li>
-        <li><strong>No Tracking:</strong> Location coordinates are never saved to our servers, never logged in user profiles, and never shared with third parties.</li>
+        <li><strong>Direct Service Provider Transmission:</strong> Location coordinates are transmitted over secure HTTPS directly to trusted meteorological and geocoding providers (such as Open-Meteo and OpenStreetMap) solely to retrieve local weather models and place names. Coordinates are processed ephemerally and are never saved to our servers, never linked to your identity, and never shared with advertising or data brokers.</li>
       </ul>
     </div>
 
