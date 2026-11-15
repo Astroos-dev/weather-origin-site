@@ -28,3 +28,18 @@ jobs:
           path: '.'
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published privacy and support pages over HTTPS
+        run: |
+          set -e
+          for page in privacy-policy.html support.html; do
+            for attempt in $(seq 1 12); do
+              if curl --fail --silent --show-error --location --max-time 15 "https://astroos-dev.github.io/weather-origin-site/$page" | grep -qi "<title"; then
+                echo "Verified $page"
+                break
+              fi
+              if [ "$attempt" = 12 ]; then
+                echo "Public $page not reachable"; exit 1
+              fi
+              sleep 10
+            done
+          done
