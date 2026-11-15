@@ -219,14 +219,14 @@
   <div class="container">
     <div class="badge">Legal & Privacy Compliance</div>
     <h1>Privacy Policy</h1>
-    <div class="subtitle" style="margin-bottom: 2rem;">Last updated: August 24, 2026 · Version 1.0</div>
+    <div class="subtitle" style="margin-bottom: 2rem;">Last updated: November 15, 2026 · Version 1.0.5</div>
 
     <div class="highlight-box">
       <p><strong>Privacy Commitment:</strong> Weather Origin does not collect, sell, or monetize any personal information. The app does not use accounts, user logins, or advertising trackers.</p>
     </div>
 
     <div class="card">
-      <h2>1. No Account System & No Personal Data Collection</h2>
+      <h2>1. No Accounts, Ads or Developer Identity Collection</h2>
       <p>Weather Origin is designed to provide meteorological and astronomical intelligence without requiring user registration. We do not collect, store, or transmit your name, email address, phone number, contacts, financial data, or device hardware IDs.</p>
     </div>
 
@@ -236,7 +236,7 @@
       <ul>
         <li><strong>Precise Location (GPS):</strong> When location permission is granted, GPS coordinates are used by your device to request meteorological forecasts for your immediate area.</li>
         <li><strong>Manual City Search:</strong> You may search for locations manually without granting GPS access.</li>
-        <li><strong>Direct Service Provider Transmission:</strong> Location coordinates are transmitted over secure HTTPS directly to trusted meteorological and geocoding providers (such as Open-Meteo and OpenStreetMap) solely to retrieve local weather models and place names. Coordinates are processed ephemerally and are never saved to our servers, never linked to your identity, and never shared with advertising or data brokers.</li>
+        <li><strong>Direct Service Provider Transmission:</strong> Location coordinates are transmitted over secure HTTPS directly from your device to weather and geocoding providers, including Open-Meteo and BigDataCloud, to retrieve local forecasts and place names. The app developer does not receive or store these requests on developer-operated servers. Third-party providers may process network metadata and location data under their own privacy policies.</li>
       </ul>
     </div>
 
@@ -256,11 +256,12 @@
       <h2>4. Third-Party Meteorological Services</h2>
       <p>To provide high-resolution weather models and geospatial queries, Weather Origin connects to trusted public meteorological APIs via secure HTTPS:</p>
       <ul>
-        <li><strong>Open-Meteo:</strong> Provides atmospheric weather forecasts, cloud layer breakdowns, humidity, wind, and atmospheric stability metrics without requiring personal identifiers.</li>
-        <li><strong>Open-Meteo Geocoding & OpenStreetMap Nominatim:</strong> Used for reverse geocoding and location search queries.</li>
-        <li><strong>7Timer!:</strong> Secondary meteorological reference model.</li>
+        <li><strong>Open-Meteo:</strong> Provides atmospheric forecasts, cloud layer breakdowns, humidity, wind, and estimated atmospheric stability. Weather data is attributed to Open-Meteo under CC BY 4.0.</li>
+        <li><strong>Open-Meteo Geocoding:</strong> Used for city search queries.</li>
+        <li><strong>BigDataCloud:</strong> Its client-side reverse-geocoding service receives your device's current coordinates and standard network metadata such as IP address when you request your GPS location. Its handling of network metadata follows its own published privacy terms.</li>
+        <li><strong>Atmospheric stability:</strong> Estimated using Open-Meteo upper-air forecast data; these estimates are not direct optical seeing measurements.</li>
       </ul>
-      <p>These network requests contain only the geographic coordinates and timezone necessary to fulfill the meteorological query. No advertising IDs or personal identifiers are attached to these network calls.</p>
+      <p>These requests may include the coordinates or city-search text needed for the selected feature, timezone, and ordinary network metadata such as IP address and user agent. We do not add advertising IDs or account IDs to weather requests. External providers govern their own processing and retention of data.</p>
     </div>
 
     <div class="card">
