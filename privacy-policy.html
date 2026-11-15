@@ -256,10 +256,10 @@
       <h2>4. Third-Party Meteorological Services</h2>
       <p>To provide high-resolution weather models and geospatial queries, Weather Origin connects to trusted public meteorological APIs via secure HTTPS:</p>
       <ul>
-        <li><strong>Open-Meteo:</strong> Provides atmospheric weather forecasts, cloud layer breakdowns, humidity, wind, and atmospheric stability metrics without requiring personal identifiers.</li>
+        <li><strong>Open-Meteo:</strong> Provides atmospheric forecasts, cloud layer breakdowns, humidity, wind, and estimated atmospheric stability. Weather data is attributed to Open-Meteo under CC BY 4.0.</li>
         <li><strong>Open-Meteo Geocoding:</strong> Used for city search queries.</li>
-        <li><strong>BigDataCloud:</strong> Its client-side reverse-geocoding service receives your device's current coordinates and standard network metadata such as IP address when you request your GPS location. BigDataCloud states it uses anonymized coordinate-to-IP signals to improve geolocation accuracy. See its published privacy and fair-use documentation.</li>
-        <li><strong>7Timer!:</strong> Secondary meteorological reference model.</li>
+        <li><strong>BigDataCloud:</strong> Its client-side reverse-geocoding service receives your device's current coordinates and standard network metadata such as IP address when you request your GPS location. Its handling of network metadata follows its own published privacy terms.</li>
+        <li><strong>Atmospheric stability:</strong> Estimated using Open-Meteo upper-air forecast data; these estimates are not direct optical seeing measurements.</li>
       </ul>
       <p>These requests may include the coordinates or city-search text needed for the selected feature, timezone, and ordinary network metadata such as IP address and user agent. We do not add advertising IDs or account IDs to weather requests. External providers govern their own processing and retention of data.</p>
     </div>
